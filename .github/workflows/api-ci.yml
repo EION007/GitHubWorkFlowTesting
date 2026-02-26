@@ -1,4 +1,4 @@
-name: Simple API Workflow
+name: Post Deployment API Test
 
 on:
   push:
@@ -6,18 +6,25 @@ on:
       - main
 
 jobs:
-  run-script:
+  test-api:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Set up Node
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Run Test Script
+      - name: Install Dependencies
         working-directory: api-tests
-        run: node test.js
+        run: npm install
+
+      - name: Wait for Railway Deployment
+        run: sleep 120
+
+      - name: Run API Tests
+        working-directory: api-tests
+        run: npm test

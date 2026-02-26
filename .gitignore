@@ -29,5 +29,12 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+
 ### VS Code ###
 .vscode/
+
+
+# Node
+node_modules/
+api-tests/node_modules/
+npm-debug.log
