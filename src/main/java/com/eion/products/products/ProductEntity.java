@@ -1,14 +1,19 @@
 package com.eion.products.products;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "products")
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class ProductEntity {
 
   @Id
@@ -17,6 +22,7 @@ public class ProductEntity {
 
   private String name;
   private String description;
-  private Double price;
+  private BigDecimal price;
   private String category;
+
 }
